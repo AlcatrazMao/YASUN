@@ -1,0 +1,138 @@
+@font-face {
+  font-family: 'Chunk Five';
+  src: url('fonts/ChunkFive-Regular.opt') format('opt'),
+       url('fonts/ChunkFive-print.opt') format('opt');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Estilos generales */
+body {
+  background-image: url('img/fondo.jpg');
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Flipbook */
+#flipbook {
+  width: 720px;
+  height: 600px;
+  margin-left: 240px;
+}
+
+/* Páginas */
+.page {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Contenedor de texto // Usamos flex para centrar vertical y horizontalmente el contenido interno */
+.pagina-texto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Chunk Five', sans-serif;
+  color: white;
+  width: 80%;
+  z-index: 2;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Título /
+.pagina-texto h2 {
+  font-size: 2.1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+ 
+}
+
+/* Párrafo */
+.pagina-texto p {
+  font-size: 1.1em;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Animación de cada palabra (envuelta en span) */
+.pagina-texto p span {
+  opacity: 0;
+  display: inline-block;
+  animation: fadeIn 0.5s forwards;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Personalizar los saltos de línea (<br>) // Puedes agregar más estilos, como un color o un borde si lo deseas */
+.pagina-texto p br {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
+}
+
+/* Botones */
+button {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  z-index: 3;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #2980b9, #1c6692);
+}
+
+#prevPage {
+  left: 20px;
+}
+
+#nextPage {
+  right: 20px;
+}
+#resetAnimaciones {
+  position: fixed;
+  top: 10px;    /* Ubicado en la parte superior */
+  left: 20px;   /* Alineado a la izquierda */
+  background: #e74c3c;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 4;   /* Un poco más alto para que se vea sobre otros */
+  border: none;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: background 0.3s;
+}
+
+#resetAnimaciones:hover {
+  background: #c0392b;
+}
